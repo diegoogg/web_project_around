@@ -4,8 +4,8 @@ let formElement = document.querySelector(".popup__container");
 let newProfile = document.querySelector(".popup_container-profile");
 let newPlace = document.querySelector(".popup_container-place");
 
-let editProfile = document.querySelector(".profile__edit-btn");
-let addPlace = document.querySelector(".profile__add-btn");
+let editProfile = document.querySelector(".profile__edit_btn");
+let addPlace = document.querySelector(".profile__add_btn");
 
 let placeInput = document.querySelector(".popup__input_place");
 let placeSrc = document.querySelector(".popup__input_src");
