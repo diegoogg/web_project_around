@@ -59,7 +59,7 @@
 .popup__button:hover {
   opacity: 80%;
 }
-.popup__info_close_button {
+.popup__info_close {
   top: -40px;
   right: -40px;
   position: absolute;
@@ -67,7 +67,7 @@
   height: 40px;
 }
 
-.popup__info_close_button:hover {
+.popup__info_close:hover {
   opacity: 60%;
 }
 
@@ -75,7 +75,7 @@
   .popup__container {
     width: 282px;
   }
-  .popup__info_close_button {
+  .popup__info_close {
     width: 26px;
     height: 26px;
     right: 0;
