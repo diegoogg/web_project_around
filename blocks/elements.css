@@ -19,7 +19,7 @@
   width: 282px;
   height: 282px;
 }
-.elements__image_delete-btn {
+.elements__image-delete-btn {
   background-image: url(../images/trash-button.png);
   width: 18px;
   height: 19.3px;
@@ -30,7 +30,7 @@
   top: 18px;
   right: 15px;
 }
-.elements__image_delete-btn:hover {
+.elements__image-delete-btn:hover {
   opacity: 60%;
 }
 .elements__image-like-btn {
