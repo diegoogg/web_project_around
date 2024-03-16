@@ -1,5 +1,4 @@
-// Busquemos el formulario en el DOM
-let formElement = document.querySelector(".popup__container");
+let formElement = document.querySelector(".popup__container_profile");
 
 let newProfile = document.querySelector(".popup_container-profile");
 let newPlace = document.querySelector(".popup_container-place");
@@ -16,52 +15,49 @@ let jobInput = document.querySelector(".popup__input_job");
 let profileName = document.querySelector(".profile__name");
 let profileJob = document.querySelector(".profile__description");
 
-let closePlace = document.querySelector("#closeNewPlace");
+let closeNewPlace = document.querySelector("#closeNewPlace");
 let closeProfile = document.querySelector("#closeEditProfile");
 
-function handleEditProfile(evt) {
+function newEditProfile(evt) {
   evt.preventDefault();
-  newProfile.classList.add("popup_opened");
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  newProfile.classList.add("popup_opened");
 }
 
-function handleaddPlace(evt) {
+function newAddPlace(evt) {
   evt.preventDefault();
   newPlace.classList.add("popup_opened");
 }
 
-function handleCloseEditProfile(evt) {
+function closeEditProfile(evt) {
   evt.preventDefault();
   newProfile.classList.remove("popup_opened");
 }
 
-function handleClosePlace(evt) {
+function closePlace(evt) {
+  evt.preventDefault();
   newPlace.classList.remove("popup_opened");
 }
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
   newProfile.classList.remove("popup_opened");
-  // Obtén los valores de cada campo desde la propiedad de valor correspondiente
-
-  // Selecciona los elementos donde se introducirán los valores de los campos
-
-  // Inserta nuevos valores utilizando el textContent
-  // propiedad del método querySelector()
 }
+
+/*
 function handleNewPlaceFormSubmit(evt) {
   evt.preventDefault();
   newPlace.classList.remove("popup_opened");
-}
-// Conecta el manipulador (handler) al formulario:
-// se observará el evento de entrega
+} */
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
-formElement.addEventListener("submit", handleNewPlaceFormSubmit);
+//formElement.addEventListener("submit", handleNewPlaceFormSubmit);
 
-editProfile.addEventListener("click", handleEditProfile);
-addPlace.addEventListener("click", handleaddPlace);
+editProfile.addEventListener("click", newEditProfile);
+addPlace.addEventListener("click", newAddPlace);
 
-closePlace.addEventListener("click", handleClosePlace);
-closeProfile.addEventListener("click", handleCloseEditProfile);
+closeNewPlace.addEventListener("click", closePlace);
+closeProfile.addEventListener("click", closeEditProfile);

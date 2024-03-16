@@ -39,7 +39,7 @@
           <button type="button" class="profile__add">
             <img
               src="./images/add-button.png"
-              alt=""
+              alt="add button"
               class="profile__add-img"
             />
           </button>
@@ -127,33 +127,9 @@
       <footer class="footer">
         <p class="footer__text">&copy; 2024. Diego Ocegueda</p>
       </footer>
-      <div class="popup popup_container-place">
-        <form class="popup__container">
-          <fieldset class="popup__info">
-            <img
-              class="popup__info-close"
-              alt="close button"
-              src="./images/close-btn.png"
-              id="closeNewPlace"
-            />
-            <h3 class="popup__title">Nuevo Lugar</h3>
-            <input
-              type="text"
-              placeholder="Titulo"
-              class="popup__input popup__input_place"
-            />
-            <input
-              type="text"
-              placeholder="Enlace a la imagen"
-              class="popup__input popup__input_src"
-            />
-            <button type="submit" class="popup__button">Crear</button>
-          </fieldset>
-        </form>
-      </div>
 
       <div class="popup popup_container-profile">
-        <form class="popup__container">
+        <form class="popup__container popup__container_profile">
           <fieldset class="popup__info">
             <img
               class="popup__info-close"
@@ -173,6 +149,31 @@
               class="popup__input popup__input_job"
             />
             <button type="submit" class="popup__button">Guardar</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="popup popup_container-place">
+        <form class="popup__container popup__container_place">
+          <fieldset class="popup__info">
+            <img
+              class="popup__info-close"
+              alt="close button"
+              src="./images/close-btn.png"
+              id="closeNewPlace"
+            />
+            <h3 class="popup__title">Nuevo Lugar</h3>
+            <input
+              type="text"
+              placeholder="Titulo"
+              class="popup__input popup__input_place"
+            />
+            <input
+              type="text"
+              placeholder="Enlace a la imagen"
+              class="popup__input popup__input_src"
+            />
+            <button type="submit" class="popup__button">Crear</button>
           </fieldset>
         </form>
       </div>
