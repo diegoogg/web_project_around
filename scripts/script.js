@@ -18,14 +18,14 @@ let profileJob = document.querySelector(".profile__description");
 let closeNewPlace = document.querySelector("#closeNewPlace");
 let closeProfile = document.querySelector("#closeEditProfile");
 
-function newEditProfile(evt) {
+function editNewProfile(evt) {
   evt.preventDefault();
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   newProfile.classList.add("popup_opened");
 }
 
-function newAddPlace(evt) {
+function addNewPlace(evt) {
   evt.preventDefault();
   newPlace.classList.add("popup_opened");
 }
@@ -56,8 +56,8 @@ function handleNewPlaceFormSubmit(evt) {
 formElement.addEventListener("submit", handleProfileFormSubmit);
 //formElement.addEventListener("submit", handleNewPlaceFormSubmit);
 
-editProfile.addEventListener("click", newEditProfile);
-addPlace.addEventListener("click", newAddPlace);
+editProfile.addEventListener("click", editNewProfile);
+addPlace.addEventListener("click", addNewPlace);
 
 closeNewPlace.addEventListener("click", closePlace);
 closeProfile.addEventListener("click", closeEditProfile);
