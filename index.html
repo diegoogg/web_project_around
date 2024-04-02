@@ -44,85 +44,7 @@
             />
           </button>
         </section>
-        <section class="elements">
-          <figure class="elements__card">
-            <img
-              src="./images/valle-de-yosemite.png"
-              alt="valle de yosemite"
-              class="elements__image"
-            />
-            <button type="button" class="elements__image-delete-btn"></button>
-            <figcaption class="elements__image-description">
-              <p class="elements__image-description-title">Valle de Yosemite</p>
-              <button class="elements__image-like-btn"></button>
-            </figcaption>
-          </figure>
-
-          <figure class="elements__card">
-            <img
-              src="./images/lago-louise.png"
-              alt="lago louise"
-              class="elements__image"
-            />
-            <button type="button" class="elements__image-delete-btn"></button>
-            <figcaption class="elements__image-description">
-              <p class="elements__image-description-title">Lago Louise</p>
-              <button type="button" class="elements__image-like-btn"></button>
-            </figcaption>
-          </figure>
-
-          <figure class="elements__card">
-            <img
-              src="./images/montanas-calvas.png"
-              alt="montañsa calvas"
-              class="elements__image"
-            />
-            <button type="button" class="elements__image-delete-btn"></button>
-            <figcaption class="elements__image-description">
-              <p class="elements__image-description-title">Montañas Calvas</p>
-              <button type="button" class="elements__image-like-btn"></button>
-            </figcaption>
-          </figure>
-
-          <figure class="elements__card">
-            <img
-              src="./images/grand-canyon.jpg"
-              alt="grand canyon"
-              class="elements__image"
-            />
-            <button type="button" class="elements__image-delete-btn"></button>
-            <figcaption class="elements__image-description">
-              <p class="elements__image-description-title">Grand Canyon</p>
-              <button type="button" class="elements__image-like-btn"></button>
-            </figcaption>
-          </figure>
-
-          <figure class="elements__card">
-            <img
-              src="./images/big-bear-lake.jpg"
-              alt="big bear lake"
-              class="elements__image"
-            />
-            <button type="button" class="elements__image-delete-btn"></button>
-            <figcaption class="elements__image-description">
-              <p class="elements__image-description-title">Big Bear Lake</p>
-              <button type="button" class="elements__image-like-btn"></button>
-            </figcaption>
-          </figure>
-
-          <figure class="elements__card">
-            <img
-              src="./images/yellowstone.jpg"
-              alt="yellowstone"
-              class="elements__image"
-            />
-            <button type="button" class="elements__image-delete-btn"></button>
-            <figcaption class="elements__image-description">
-              <p class="elements__image-description-title">Yellowstone</p>
-              <button type="button" class="elements__image-like-btn"></button>
-            </figcaption>
-          </figure>
-        </section>
+        <section class="elements"></section>
       </main>
       <footer class="footer">
         <p class="footer__text">&copy; 2024. Diego Ocegueda</p>
@@ -131,12 +53,7 @@
       <div class="popup popup_container-profile">
         <form class="popup__container popup__container_profile">
           <fieldset class="popup__info">
-            <img
-              class="popup__info-close"
-              alt="close button"
-              src="./images/close-btn.png"
-              id="closeEditProfile"
-            />
+            <button class="popup__close"></button>
             <h3 class="popup__title">Editar Perfil</h3>
             <input
               type="text"
@@ -156,12 +73,7 @@
       <div class="popup popup_container-place">
         <form class="popup__container popup__container_place">
           <fieldset class="popup__info">
-            <img
-              class="popup__info-close"
-              alt="close button"
-              src="./images/close-btn.png"
-              id="closeNewPlace"
-            />
+            <button class="popup__close"></button>
             <h3 class="popup__title">Nuevo Lugar</h3>
             <input
               type="text"
@@ -177,6 +89,26 @@
           </fieldset>
         </form>
       </div>
+
+      <div class="popup" id="image-popup">
+        <div class="popup__container"></div>
+        <div class="popup__container_image">
+          <button class="popup__close"></button>
+          <img class="popup__image" src="" alt="" />
+          <p class="popup__image-title"></p>
+        </div>
+      </div>
+
+      <template class="template">
+        <figure class="elements__card">
+          <img class="elements__image" alt="imagen template" src="" />
+          <button type="button" class="elements__image-delete-btn"></button>
+          <figcaption class="elements__image-description">
+            <p class="elements__image-description-title"></p>
+            <button class="elements__image-like-btn"></button>
+          </figcaption>
+        </figure>
+      </template>
 
       <script src="scripts/script.js"></script>
     </div>

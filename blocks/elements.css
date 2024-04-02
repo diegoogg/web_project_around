@@ -3,7 +3,6 @@
   margin: 0 auto;
   max-width: 882px;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px 18px;
 }
 .elements__card {
@@ -44,6 +43,11 @@
 .elements__image-like-btn:hover {
   opacity: 50%;
 }
+
+.elements__image-like-btn-active {
+  background-image: url(../images/like-btn-active.png);
+}
+
 .elements__image-description {
   display: flex;
   justify-content: space-between;
@@ -63,4 +67,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (max-width: 881px) {
+  .elements {
+    justify-content: center;
+  }
 }
