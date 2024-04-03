@@ -1,19 +1,19 @@
-let formElement = document.querySelector(".popup__container_profile");
+const formElement = document.querySelector(".popup__container_profile");
 
-let newProfile = document.querySelector(".popup_container-profile");
-let newPlace = document.querySelector(".popup_container-place");
+const newProfile = document.querySelector(".popup_container-profile");
+const newPlace = document.querySelector(".popup_container-place");
 
-let editProfile = document.querySelector(".profile__edit");
-let addPlace = document.querySelector(".profile__add");
+const editProfile = document.querySelector(".profile__edit");
+const addPlace = document.querySelector(".profile__add");
 
-let placeInput = document.querySelector(".popup__input_place");
-let placeSrc = document.querySelector(".popup__input_src");
+const placeInput = document.querySelector(".popup__input_place");
+const placeSrc = document.querySelector(".popup__input_src");
 
-let nameInput = document.querySelector(".popup__input_name");
-let jobInput = document.querySelector(".popup__input_job");
+const nameInput = document.querySelector(".popup__input_name");
+const jobInput = document.querySelector(".popup__input_job");
 
-let profileName = document.querySelector(".profile__name");
-let profileJob = document.querySelector(".profile__description");
+const profileName = document.querySelector(".profile__name");
+const profileJob = document.querySelector(".profile__description");
 
 const closeEditBtn = document.querySelectorAll(".popup__close");
 
