@@ -85,12 +85,15 @@
 .popup__button:hover {
   opacity: 80%;
 }
-
+.popup__button:disabled {
+  background-color: lightgray;
+}
 .popup__close:hover {
   opacity: 60%;
 }
 
 .popup__error {
+  font-size: 12px;
   color: red;
 }
 

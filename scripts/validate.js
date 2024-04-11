@@ -14,7 +14,6 @@ function setEventListeners(form, formConfig) {
         inputElement.classList.remove(formConfig.inputErrorClass);
         errorMsg.textContent = "";
       }
-
       buttonSubmit.disabled = !hasValidInput(inputList);
     });
   });
