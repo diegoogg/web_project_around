@@ -1,4 +1,4 @@
-const formElement = document.querySelector(".popup__container_profile");
+const formElement = document.querySelector(".popup__form_profile");
 
 const newProfile = document.querySelector(".popup_container-profile");
 const newPlace = document.querySelector(".popup_container-place");
