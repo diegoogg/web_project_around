@@ -56,11 +56,13 @@ function editNewProfile(evt) {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   newProfile.classList.add("popup_opened");
+  document.addEventListener("keydown", closeEsc);
 }
 
 function addNewPlace(evt) {
   evt.preventDefault();
   newPlace.classList.add("popup_opened");
+  document.addEventListener("keydown", closeEsc);
 }
 
 function closePopup(evt) {
@@ -68,6 +70,13 @@ function closePopup(evt) {
   newProfile.classList.remove("popup_opened");
   newPlace.classList.remove("popup_opened");
   imagePopup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeEsc);
+}
+
+function closeEsc(evt) {
+  if (evt.key === "Escape") {
+    closePopup(evt);
+  }
 }
 
 Array.from(closeEditBtn).forEach((item) => {
@@ -78,12 +87,13 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  newProfile.classList.remove("popup_opened");
+  closePopup(evt);
 }
 
 function handleNewPlaceFormSubmit(evt) {
   evt.preventDefault();
-  newPlace.classList.remove("popup_opened");
+
+  closePopup(evt);
 }
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
@@ -101,7 +111,9 @@ function handleAddCard(evt) {
   const cardNode = createCard(newPlaceNameInput.value, newPlaceLinkInput.value);
 
   elementsArea.prepend(cardNode);
-  newPlace.classList.remove("popup_opened");
+  closePopup(evt);
+  newPlaceNameInput.value = "";
+  newPlaceLinkInput.value = "";
 }
 
 function createCard(name, link) {
@@ -127,6 +139,7 @@ function createCard(name, link) {
   });
   cardNode.querySelector(".elements__image").addEventListener("click", () => {
     imagePopup.classList.add("popup_opened");
+    document.addEventListener("keydown", closeEsc);
     imagePopup.querySelector(".popup__image").src = link;
     imagePopup.querySelector(".popup__image-title").textContent = name;
   });
