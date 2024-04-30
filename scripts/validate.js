@@ -1,4 +1,4 @@
-function setEventListeners(form, formConfig) {
+export function setEventListeners(form, formConfig) {
   const inputList = Array.from(form.querySelectorAll(formConfig.inputSelector));
   const buttonSubmit = form.querySelector(formConfig.submitButtonSelector);
 
@@ -20,14 +20,14 @@ function setEventListeners(form, formConfig) {
   buttonSubmit.disabled = !hasValidInput(inputList);
 }
 
-function enableValidation(formConfig) {
+export function enableValidation(formConfig) {
   const forms = document.querySelectorAll(formConfig.formSelector);
   forms.forEach((form) => {
     setEventListeners(form, formConfig);
   });
 }
 
-function hasValidInput(inputList) {
+export function hasValidInput(inputList) {
   return inputList.every((item) => {
     return item.validity.valid;
   });

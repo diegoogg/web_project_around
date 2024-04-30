@@ -1,30 +1,32 @@
-const formElement = document.querySelector(".popup__form_profile");
+import Card from "./Card.js";
 
-const newProfile = document.querySelector(".popup_container-profile");
-const newPlace = document.querySelector(".popup_container-place");
+export const formElement = document.querySelector(".popup__form_profile");
 
-const editProfile = document.querySelector(".profile__edit");
-const addPlace = document.querySelector(".profile__add");
+export const newProfile = document.querySelector(".popup_container-profile");
+export const newPlace = document.querySelector(".popup_container-place");
 
-const placeInput = document.querySelector(".popup__input_place");
-const placeSrc = document.querySelector(".popup__input_src");
+export const editProfile = document.querySelector(".profile__edit");
+export const addPlace = document.querySelector(".profile__add");
 
-const nameInput = document.querySelector(".popup__input_name");
-const jobInput = document.querySelector(".popup__input_job");
+export const placeInput = document.querySelector(".popup__input_place");
+export const placeSrc = document.querySelector(".popup__input_src");
 
-const profileName = document.querySelector(".profile__name");
-const profileJob = document.querySelector(".profile__description");
+export const nameInput = document.querySelector(".popup__input_name");
+export const jobInput = document.querySelector(".popup__input_job");
 
-const closeEditBtn = document.querySelectorAll(".popup__close");
+export const profileName = document.querySelector(".profile__name");
+export const profileJob = document.querySelector(".profile__description");
 
-const newPlaceNameInput = newPlace.querySelector(".popup__input_place");
-const newPlaceLinkInput = newPlace.querySelector(".popup__input_src");
+export const closeEditBtn = document.querySelectorAll(".popup__close");
 
-const imagePopup = document.getElementById("image-popup");
+export const newPlaceNameInput = newPlace.querySelector(".popup__input_place");
+export const newPlaceLinkInput = newPlace.querySelector(".popup__input_src");
 
-const elementsArea = document.querySelector(".elements");
+export const imagePopup = document.getElementById("image-popup");
 
-const initialCards = [
+export const elementsArea = document.querySelector(".elements");
+
+export const initialCards = [
   {
     name: "Valle de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
@@ -51,21 +53,16 @@ const initialCards = [
   },
 ];
 
-function editNewProfile(evt) {
-  evt.preventDefault();
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  newProfile.classList.add("popup_opened");
-  document.addEventListener("keydown", closeEsc);
-}
+export const formConfig = {
+  formSelector: ".popup__info",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_inactive",
+  inputErrorClass: "popup__input_has_error",
+  errorClass: "popup__error",
+};
 
-function addNewPlace(evt) {
-  evt.preventDefault();
-  newPlace.classList.add("popup_opened");
-  document.addEventListener("keydown", closeEsc);
-}
-
-function closePopup(evt) {
+export function closePopup(evt) {
   evt.preventDefault();
   newProfile.classList.remove("popup_opened");
   newPlace.classList.remove("popup_opened");
@@ -73,39 +70,30 @@ function closePopup(evt) {
   document.removeEventListener("keydown", closeEsc);
 }
 
-function closeEsc(evt) {
+export function closeEsc(evt) {
   if (evt.key === "Escape") {
     closePopup(evt);
   }
 }
 
-Array.from(closeEditBtn).forEach((item) => {
-  item.addEventListener("click", closePopup);
-});
-
-function handleProfileFormSubmit(evt) {
+export function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
   closePopup(evt);
 }
 
-function handleNewPlaceFormSubmit(evt) {
+export function handleNewPlaceFormSubmit(evt) {
   evt.preventDefault();
 
   closePopup(evt);
 }
 
-formElement.addEventListener("submit", handleProfileFormSubmit);
-formElement.addEventListener("submit", handleNewPlaceFormSubmit);
+export function createCard(name, link) {
+  return new Card(name, link, "#template").returnCard();
+}
 
-editProfile.addEventListener("click", editNewProfile);
-addPlace.addEventListener("click", addNewPlace);
-
-//closeNewPlace.addEventListener("click", closePlace);
-//closeProfile.addEventListener("click", closeEditProfile);
-
-function handleAddCard(evt) {
+export function handleAddCard(evt) {
   evt.preventDefault();
 
   const cardNode = createCard(newPlaceNameInput.value, newPlaceLinkInput.value);
@@ -115,40 +103,3 @@ function handleAddCard(evt) {
   newPlaceNameInput.value = "";
   newPlaceLinkInput.value = "";
 }
-
-function createCard(name, link) {
-  const template = document.querySelector(".template");
-  const templadeNode = template.content.querySelector(".elements__card");
-  const cardNode = templadeNode.cloneNode(true);
-
-  cardNode.querySelector(".elements__image").src = link;
-  cardNode.querySelector(".elements__image").alt = "Imagen de : " + name;
-  cardNode.querySelector(".elements__image-description-title").textContent =
-    name;
-
-  cardNode
-    .querySelector(".elements__image-delete-btn")
-    .addEventListener("click", () => {
-      cardNode.remove();
-    });
-
-  const likeBtn = cardNode.querySelector(".elements__image-like-btn");
-
-  likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("elements__image-like-btn-active");
-  });
-  cardNode.querySelector(".elements__image").addEventListener("click", () => {
-    imagePopup.classList.add("popup_opened");
-    document.addEventListener("keydown", closeEsc);
-    imagePopup.querySelector(".popup__image").src = link;
-    imagePopup.querySelector(".popup__image-title").textContent = name;
-  });
-  return cardNode;
-}
-
-newPlace.addEventListener("submit", handleAddCard);
-
-initialCards.forEach((item) => {
-  const cardNode = createCard(item.name, item.link);
-  elementsArea.append(cardNode);
-});
