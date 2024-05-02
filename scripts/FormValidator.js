@@ -3,6 +3,7 @@ export default class FormValidator {
     this._formElement = formElement;
     this._formConfig = formConfig;
   }
+
   _setEventListeners(form, formConfig) {
     const inputList = Array.from(
       form.querySelectorAll(formConfig.inputSelector)
@@ -21,10 +22,10 @@ export default class FormValidator {
           inputElement.classList.remove(formConfig.inputErrorClass);
           errorMsg.textContent = "";
         }
-        buttonSubmit.disabled = !hasValidInput(inputList);
+        buttonSubmit.disabled = !this._hasValidInput(inputList);
       });
     });
-    buttonSubmit.disabled = !hasValidInput(inputList);
+    buttonSubmit.disabled = !this._hasValidInput(inputList);
   }
 
   enableValidation() {

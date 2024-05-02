@@ -1,4 +1,4 @@
-import { closeEsc, imagePopup } from "./script.js";
+import { closeEsc, imagePopup } from "./utils.js";
 
 export default class Card {
   constructor(name, link, formSelector) {

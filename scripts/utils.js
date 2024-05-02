@@ -1,58 +1,105 @@
-import FormValidator from "./FormValidator.js";
-import {
-  nameInput,
-  profileName,
-  jobInput,
-  profileJob,
-  newProfile,
-  closeEsc,
-  newPlace,
-  handleAddCard,
-  initialCards,
-  elementsArea,
-  closeEditBtn,
-  closePopup,
-  formElement,
-  handleProfileFormSubmit,
-  handleNewPlaceFormSubmit,
-  editProfile,
-  addPlace,
-  formConfig,
-} from "./script.js";
+import Card from "./Card.js";
 
-const formProfile = new FormValidator(formElement, formConfig);
-const formPlace = new FormValidator(newPlace, formConfig);
+export const formElement = document.querySelector(".popup__form_profile");
 
-function editNewProfile(evt) {
+export const newProfile = document.querySelector(".popup_container-profile");
+export const newPlace = document.querySelector(".popup_container-place");
+
+export const editProfile = document.querySelector(".profile__edit");
+export const addPlace = document.querySelector(".profile__add");
+
+export const placeInput = document.querySelector(".popup__input_place");
+export const placeSrc = document.querySelector(".popup__input_src");
+
+export const nameInput = document.querySelector(".popup__input_name");
+export const jobInput = document.querySelector(".popup__input_job");
+
+export const profileName = document.querySelector(".profile__name");
+export const profileJob = document.querySelector(".profile__description");
+
+export const closeEditBtn = document.querySelectorAll(".popup__close");
+
+export const newPlaceNameInput = newPlace.querySelector(".popup__input_place");
+export const newPlaceLinkInput = newPlace.querySelector(".popup__input_src");
+
+export const imagePopup = document.getElementById("image-popup");
+
+export const elementsArea = document.querySelector(".elements");
+
+export const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+
+export const formConfig = {
+  formSelector: ".popup__info",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_inactive",
+  inputErrorClass: "popup__input_has_error",
+  errorClass: "popup__error",
+};
+
+export function closePopup(evt) {
   evt.preventDefault();
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  newProfile.classList.add("popup_opened");
-  document.addEventListener("keydown", closeEsc);
+  newProfile.classList.remove("popup_opened");
+  newPlace.classList.remove("popup_opened");
+  imagePopup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeEsc);
 }
 
-function addNewPlace(evt) {
-  evt.preventDefault();
-  newPlace.classList.add("popup_opened");
-  document.addEventListener("keydown", closeEsc);
+export function closeEsc(evt) {
+  if (evt.key === "Escape") {
+    closePopup(evt);
+  }
 }
 
-newPlace.addEventListener("submit", handleAddCard);
+export function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  closePopup(evt);
+}
 
-initialCards.forEach((item) => {
-  const cardNode = createCard(item.name, item.link);
-  elementsArea.append(cardNode);
-});
+export function handleNewPlaceFormSubmit(evt) {
+  evt.preventDefault();
 
-Array.from(closeEditBtn).forEach((item) => {
-  item.addEventListener("click", closePopup);
-});
+  closePopup(evt);
+}
 
-formElement.addEventListener("submit", handleProfileFormSubmit);
-formElement.addEventListener("submit", handleNewPlaceFormSubmit);
+export function createCard(name, link) {
+  return new Card(name, link, "#template").returnCard();
+}
 
-editProfile.addEventListener("click", editNewProfile);
-addPlace.addEventListener("click", addNewPlace);
+export function handleAddCard(evt) {
+  evt.preventDefault();
 
-formProfile.enableValidation();
-formPlace.enableValidation();
+  const cardNode = createCard(newPlaceNameInput.value, newPlaceLinkInput.value);
+
+  elementsArea.prepend(cardNode);
+  closePopup(evt);
+  newPlaceNameInput.value = "";
+  newPlaceLinkInput.value = "";
+}
