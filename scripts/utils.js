@@ -1,4 +1,4 @@
-import Card from "./Card.js";
+import Card from "../components/Card.js";
 
 export const formElement = document.querySelector(".popup__form_profile");
 
