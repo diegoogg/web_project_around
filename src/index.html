@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pagina web acerda de lugares naturales en US"
+    />
+    <meta name="author" content="Diego Ocegueda" />
+    <meta name="keywords" content="US, naturaleza, paisajes" />
+    <title>Around the U.S</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="./images/logo.png" alt="header logo" class="header__logo" />
+      </header>
+      <main class="main">
+        <section class="profile">
+          <img
+            src="./images/profile.png"
+            alt="profile picture"
+            class="profile__image"
+          />
+          <div class="profile__info">
+            <p class="profile__name">Jacques Cousteau</p>
+            <button type="button" class="profile__edit">
+              <img
+                src="./images/Edit-Button.png"
+                alt="edit button"
+                class="profile__edit-img"
+              />
+            </button>
+
+            <p class="profile__description">Explorador</p>
+          </div>
+          <button type="button" class="profile__add">
+            <img
+              src="./images/add-button.png"
+              alt="add button"
+              class="profile__add-img"
+            />
+          </button>
+        </section>
+        <section class="elements"></section>
+      </main>
+      <footer class="footer">
+        <p class="footer__text">&copy; 2024. Diego Ocegueda</p>
+      </footer>
+
+      <div class="popup popup_container-profile">
+        <form class="popup__form popup__form_profile">
+          <fieldset class="popup__info">
+            <button class="popup__close"></button>
+            <h3 class="popup__title">Editar Perfil</h3>
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="popup__input popup__input_name"
+              required
+              minlength="2"
+              maxlength="40"
+              name="name"
+              value="Jacques Cousteau"
+            />
+            <span class="popup__error popup__error_type_name"></span>
+            <input
+              type="text"
+              placeholder="Acerca de mi"
+              class="popup__input popup__input_job"
+              value="Explorador"
+              required
+              minlength="2"
+              maxlength="200"
+              name="job"
+            />
+            <span class="popup__error popup__error_type_job"></span>
+            <button type="submit" class="popup__button">Guardar</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="popup popup_container-place">
+        <form class="popup__form popup__form_place">
+          <fieldset class="popup__info">
+            <button class="popup__close"></button>
+            <h3 class="popup__title">Nuevo Lugar</h3>
+            <input
+              type="text"
+              placeholder="Titulo"
+              class="popup__input popup__input_place"
+              required
+              minlength="2"
+              maxlength="30"
+              name="place"
+            />
+            <span class="popup__error popup__error_type_place"></span>
+            <input
+              type="url"
+              placeholder="Enlace a la imagen"
+              class="popup__input popup__input_src"
+              required
+              name="url"
+            />
+            <span class="popup__error popup__error_type_url"></span>
+            <button type="submit" class="popup__button">Crear</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="popup" id="image-popup">
+        <div class="popup__form"></div>
+        <div class="popup__form-image">
+          <button class="popup__close"></button>
+          <img
+            class="popup__image"
+            alt="image"
+            src="./images/valle-de-yosemite.png"
+          />
+          <p class="popup__image-title"></p>
+        </div>
+      </div>
+
+      <template class="template" id="template">
+        <figure class="elements__card">
+          <img
+            class="elements__image"
+            alt="imagen template"
+            src="./images/valle-de-yosemite.png"
+          />
+          <button type="button" class="elements__image-delete-btn"></button>
+          <figcaption class="elements__image-description">
+            <p class="elements__image-description-title"></p>
+            <button class="elements__image-like-btn"></button>
+          </figcaption>
+        </figure>
+      </template>
+    </div>
+  </body>
+</html>
