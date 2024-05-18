@@ -1,4 +1,5 @@
 import FormValidator from "../components/FormValidator.js";
+import "./styles/index.css";
 import { PopupWithForm } from "../components/Popup.js";
 import UserInfo from "../components/UserInfo.js";
 import {
