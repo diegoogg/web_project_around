@@ -2,10 +2,10 @@ import { closeEsc, imagePopup } from "../scripts/utils.js";
 import { PopupWithImage } from "./Popup.js";
 
 export default class Card {
-  constructor({ data, handleCardClick }, formSelector) {
-    this._data = data;
+  constructor(name, link, handleCardClick) {
+    this._name = name;
+    this._link = link;
     this.handleCardClick = handleCardClick;
-    this._formSelector = formSelector;
   }
   _getCard() {
     const template = document.querySelector(".template");

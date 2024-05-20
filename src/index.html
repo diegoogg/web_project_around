@@ -14,12 +14,16 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.png" alt="header logo" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.png')%>"
+          alt="header logo"
+          class="header__logo"
+        />
       </header>
       <main class="main">
         <section class="profile">
           <img
-            src="./images/profile.png"
+            src="<%=require('./images/profile.png')%>"
             alt="profile picture"
             class="profile__image"
           />
@@ -27,7 +31,7 @@
             <p class="profile__name">Jacques Cousteau</p>
             <button type="button" class="profile__edit">
               <img
-                src="./images/Edit-Button.png"
+                src="<%=require('./images/Edit-Button.png')%>"
                 alt="edit button"
                 class="profile__edit-img"
               />
@@ -37,7 +41,7 @@
           </div>
           <button type="button" class="profile__add">
             <img
-              src="./images/add-button.png"
+              src="<%=require('./images/add-button.png')%>"
               alt="add button"
               class="profile__add-img"
             />
@@ -113,11 +117,7 @@
         <div class="popup__form"></div>
         <div class="popup__form-image">
           <button class="popup__close"></button>
-          <img
-            class="popup__image"
-            alt="image"
-            src="./images/valle-de-yosemite.png"
-          />
+          <img class="popup__image" alt="image" src="." />
           <p class="popup__image-title"></p>
         </div>
       </div>

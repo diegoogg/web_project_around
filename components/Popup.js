@@ -35,7 +35,7 @@ export class PopupWithImage extends Popup {
   open(imagerSrc, imageDescription) {
     super.open();
     this.description.src = imagerSrc;
-    this.imageDescription.textContent = imageDescription;
+    this.src.textContent = imageDescription;
   }
 }
 
