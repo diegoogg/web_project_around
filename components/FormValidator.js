@@ -11,7 +11,7 @@ export default class FormValidator {
     const buttonSubmit = form.querySelector(formConfig.submitButtonSelector);
 
     inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", (event) => {
+      inputElement.addEventListener("input", () => {
         const errorMsg = form.querySelector(
           `.popup__error_type_${inputElement.name}`
         );

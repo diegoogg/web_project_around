@@ -1,14 +1,14 @@
-import { closeEsc, imagePopup } from "../scripts/utils.js";
-import { PopupWithImage } from "./Popup.js";
+// import { closeEsc, imagePopup } from "../scripts/utils";
 
 export default class Card {
-  constructor(name, link, handleCardClick) {
+  constructor(name, link, templateSelector, { handleClick }) {
     this._name = name;
     this._link = link;
-    this.handleCardClick = handleCardClick;
+    this._templateSelector = templateSelector;
+    this._handleClick = handleClick;
   }
   _getCard() {
-    const template = document.querySelector(".template");
+    const template = document.querySelector(this._templateSelector);
     const templadeNode = template.content.querySelector(".elements__card");
     const cardNode = templadeNode.cloneNode(true);
 
@@ -27,26 +27,20 @@ export default class Card {
     return cardNode;
   }
 
-  _setEventListener(cardNode) {
+  _setEventListeners(cardNode) {
     const likeBtn = cardNode.querySelector(".elements__image-like-btn");
 
     likeBtn.addEventListener("click", () => {
       likeBtn.classList.toggle("elements__image-like-btn-active");
     });
+
     cardNode.querySelector(".elements__image").addEventListener("click", () => {
-      imagePopup.classList.add("popup_opened");
-      document.addEventListener("keydown", closeEsc);
-      imagePopup.querySelector(".popup__image").src = this._link;
-      imagePopup.querySelector(".popup__image-title").textContent = this._name;
+      this._handleClick(this._name, this._link);
     });
   }
   returnCard() {
     const node = this._getCard();
-    this._setEventListener(node);
+    this._setEventListeners(node);
     return node;
-  }
-
-  handleClick() {
-    this.handleCardClick(this._data);
   }
 }

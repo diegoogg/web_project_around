@@ -22,7 +22,7 @@ export const closeEditBtn = document.querySelectorAll(".popup__close");
 export const newPlaceNameInput = newPlace.querySelector(".popup__input_place");
 export const newPlaceLinkInput = newPlace.querySelector(".popup__input_src");
 
-export const imagePopup = document.getElementById("image-popup");
+export const imagePopup = document.querySelector("#image-popup");
 
 export const elementsArea = document.querySelector(".elements");
 
@@ -85,21 +85,24 @@ export function handleProfileFormSubmit(evt) {
 
 export function handleNewPlaceFormSubmit(evt) {
   evt.preventDefault();
-
   closePopup(evt);
 }
 
-export function createCard(name, link) {
-  return new Card(name, link, "#template").returnCard();
+export function createCard(name, link, popupImage) {
+  return new Card(name, link, "#template", {
+    handleClick: (name, link) => {
+      popupImage.open(name, link);
+    },
+  }).returnCard();
 }
 
-export function handleAddCard(evt) {
+export function handleAddCard() {
   evt.preventDefault();
 
   const cardNode = createCard(newPlaceNameInput.value, newPlaceLinkInput.value);
 
   elementsArea.prepend(cardNode);
-  closePopup(evt);
+  closePopup();
   newPlaceNameInput.value = "";
   newPlaceLinkInput.value = "";
 }
