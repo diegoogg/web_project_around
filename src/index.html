@@ -22,14 +22,16 @@
       </header>
       <main class="main">
         <section class="profile">
-          <img
-            src="<%=require('./images/profile.png')%>"
-            alt="profile picture"
-            class="profile__image"
-          />
+          <button type="button" class="profile__edit-avatar">
+            <img
+              src="<%=require('./images/profile.png')%>"
+              alt="profile picture"
+              class="profile__avatar"
+            />
+          </button>
           <div class="profile__info">
             <p class="profile__name">Jacques Cousteau</p>
-            <button type="button" class="profile__edit">
+            <button type="button" class="profile__edit-button">
               <img
                 src="<%=require('./images/Edit-Button.png')%>"
                 alt="edit button"
@@ -52,6 +54,8 @@
       <footer class="footer">
         <p class="footer__text">&copy; 2024. Diego Ocegueda</p>
       </footer>
+
+      <!---popup perfil info-->
 
       <div class="popup popup_container-profile">
         <form class="popup__form popup__form_profile">
@@ -85,6 +89,28 @@
         </form>
       </div>
 
+      <!---popup cambiar avatar-->
+
+      <div class="popup popup_avatar">
+        <form class="popup__form popup__form_avatar">
+          <fieldset class="popup__info">
+            <button class="popup__close"></button>
+            <h3 class="popup__title">Cambiar foto de perfil</h3>
+            <input
+              type="url"
+              placeholder="Enlace a la imagen"
+              class="popup__input popup__input_avatar"
+              name="avatar"
+              required
+            />
+            <span class="popup__error"></span>
+            <button type="submit" class="popup__button">Guardar</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <!---popup nuevo lugar-->
+
       <div class="popup popup_container-place">
         <form class="popup__form popup__form_place">
           <fieldset class="popup__info">
@@ -113,7 +139,23 @@
         </form>
       </div>
 
-      <div class="popup" id="image-popup">
+      <!--popup eliminar--->
+      <div class="popup popup_confirmation">
+        <form class="popup__form popup__form_confirmation">
+          <fieldset class="popup__info">
+            <button class="popup__close"></button>
+            <h3 class="popup__title">Estas seguro?</h3>
+            <button
+              type="submit"
+              class="popup__button popup__button-confirmation"
+            >
+              Si
+            </button>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="popup popup_card">
         <div class="popup__form"></div>
         <div class="popup__form-image">
           <button class="popup__close"></button>
@@ -133,6 +175,7 @@
           <figcaption class="elements__image-description">
             <p class="elements__image-description-title"></p>
             <button class="elements__image-like-btn"></button>
+            <p class="elements__counter">0</p>
           </figcaption>
         </figure>
       </template>

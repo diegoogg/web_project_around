@@ -1,11 +1,13 @@
-import Card from "../components/Card.js";
+import Card from "./Card.js";
+import PopupWithConfirmation from "./PopupWithConfirmation.js";
+import { api } from "./Api.js";
 
 export const formElement = document.querySelector(".popup__form_profile");
 
 export const newProfile = document.querySelector(".popup_container-profile");
 export const newPlace = document.querySelector(".popup_container-place");
 
-export const editProfile = document.querySelector(".profile__edit");
+export const editProfile = document.querySelector(".profile__edit-button");
 export const addPlace = document.querySelector(".profile__add");
 
 export const placeInput = document.querySelector(".popup__input_place");
@@ -25,6 +27,13 @@ export const newPlaceLinkInput = newPlace.querySelector(".popup__input_src");
 export const imagePopup = document.querySelector("#image-popup");
 
 export const elementsArea = document.querySelector(".elements");
+
+export const deleteCard = document.querySelector(".elements__image-delete-btn");
+
+export const ediAvatar = document.querySelector(".profile__edit-avatar");
+export const popupConfirmation = new PopupWithConfirmation(
+  ".popup_confirmation"
+);
 
 export const initialCards = [
   {
@@ -88,12 +97,34 @@ export function handleNewPlaceFormSubmit(evt) {
   closePopup(evt);
 }
 
-export function createCard(name, link, popupImage) {
-  return new Card(name, link, "#template", {
-    handleClick: (name, link) => {
-      popupImage.open(name, link);
+export function createCard(name, link, popupImage, likes, _id, owner, user) {
+  return new Card(
+    name,
+    link,
+    ".template",
+    {
+      handleClick: (name, link) => {
+        popupImage.open(name, link);
+      },
+      handleDeleteCard: (cardId, callback) => {
+        popupConfirmation.open(() => {
+          return api.deleteCard(cardId).then(() => {
+            callback();
+          });
+        });
+      },
+      handleAddlike: (cardId) => {
+        return api.like(cardId);
+      },
+      handleDeleteLike: (cardId) => {
+        return api.deleteLike(cardId);
+      },
     },
-  }).returnCard();
+    likes,
+    _id,
+    owner,
+    user
+  ).returnCard();
 }
 
 export function handleAddCard() {

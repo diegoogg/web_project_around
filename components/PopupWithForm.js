@@ -9,7 +9,6 @@ export default class PopupWithForm extends Popup {
     const popupOpen = document.querySelector(this._popup);
     const form = popupOpen.querySelector("form");
     const inputData = {};
-
     const inputForm = Array.from(form.elements);
 
     inputForm.forEach((element) => {
@@ -27,8 +26,12 @@ export default class PopupWithForm extends Popup {
     const form = popupOpen.querySelector("form");
     form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._handleSubmit(this.getInputValues());
-      this.close();
+      popupOpen.querySelector("form");
+      popupOpen.querySelector(".popup__button").textContent = "Guardando...";
+      this._handleSubmit(this.getInputValues()).then(() => {
+        popupOpen.querySelector(".popup__button").textContent = "Guardar";
+        this.close();
+      });
     });
   }
 
