@@ -37,8 +37,9 @@
   background-repeat: no-repeat;
   border: 0;
   width: 21px;
-  height: 19px;
+  height: 35px;
   background-color: transparent;
+  padding: 0px;
 }
 .elements__image-like-btn:hover {
   opacity: 50%;
@@ -67,6 +68,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.elements__counter {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 20px 0 0 0;
 }
 
 @media screen and (max-width: 881px) {

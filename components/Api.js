@@ -11,7 +11,7 @@ class Api {
       },
       method: "GET",
     });
-    return await res.json;
+    return await res.json();
   }
 
   async getCards() {
@@ -21,17 +21,17 @@ class Api {
       },
       method: "GET",
     });
-    return await res.json;
+    return await res.json();
   }
 
-  async updateUser(name, job) {
+  async updateUser(name, about) {
     const res = await fetch(`${this._url}users/me`, {
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
       method: "PATCH",
-      body: JSON.stringify({ name, job }),
+      body: JSON.stringify({ name, about }),
     });
     return await res.json();
   }

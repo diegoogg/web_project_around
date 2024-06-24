@@ -28,15 +28,15 @@ const formPlace = new FormValidator(newPlace, formConfig);
 
 const user = {
   name: ".profile__name",
-  job: ".profile__description",
+  about: ".profile__description",
 };
 
 const userAbout = new UserInfo(user);
 const popupProfile = new PopupWithForm(
   ".popup_container-profile",
-  ({ name, job }) => {
-    return api.updateUser(name, job).then(() => {
-      userAbout.setUserInfo(name, job);
+  ({ name, about }) => {
+    return api.updateUser(name, about).then(() => {
+      userAbout.setUserInfo(name, about);
       popupProfile.close();
     });
   }
@@ -78,7 +78,7 @@ let section = null;
 
 api.getUserInfo().then((user) => {
   currentUser = user;
-  userAbout.setUserInfo(user.name, user.job);
+  userAbout.setUserInfo(user.name, user.about);
   const avatar = document.querySelector(".profile__avatar");
   avatar.src = user.avatar;
   api.getCards().then((cards) => {

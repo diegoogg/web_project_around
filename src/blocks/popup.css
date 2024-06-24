@@ -50,12 +50,20 @@
   font-size: 24px;
 }
 .popup__info {
+  max-width: 430px;
   border-radius: 10px;
   padding: 34px 36px 36px;
   margin: 0;
   border: 0;
 }
-
+.popup__info_confirmation {
+  text-align: center;
+  width: 358px;
+  height: 181px;
+}
+.popup__info_avatar {
+  width: 358px;
+}
 .popup__input {
   width: 100%;
   padding: 0 0 13px;
@@ -115,5 +123,13 @@
   .popup__image {
     width: 300px;
     height: 350px;
+  }
+  .popup__info_confirmation {
+    text-align: center;
+    width: 206px;
+    height: 181px;
+  }
+  .popup__info_avatar {
+    width: 206px;
   }
 }

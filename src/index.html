@@ -81,7 +81,7 @@
               required
               minlength="2"
               maxlength="200"
-              name="job"
+              name="about"
             />
             <span class="popup__error popup__error_type_job"></span>
             <button type="submit" class="popup__button">Guardar</button>
@@ -93,7 +93,7 @@
 
       <div class="popup popup_avatar">
         <form class="popup__form popup__form_avatar">
-          <fieldset class="popup__info">
+          <fieldset class="popup__info popup__info_avatar">
             <button class="popup__close"></button>
             <h3 class="popup__title">Cambiar foto de perfil</h3>
             <input
@@ -142,7 +142,7 @@
       <!--popup eliminar--->
       <div class="popup popup_confirmation">
         <form class="popup__form popup__form_confirmation">
-          <fieldset class="popup__info">
+          <fieldset class="popup__info popup__info_confirmation">
             <button class="popup__close"></button>
             <h3 class="popup__title">Estas seguro?</h3>
             <button
@@ -174,8 +174,9 @@
           <button type="button" class="elements__image-delete-btn"></button>
           <figcaption class="elements__image-description">
             <p class="elements__image-description-title"></p>
-            <button class="elements__image-like-btn"></button>
-            <p class="elements__counter">0</p>
+            <button class="elements__image-like-btn">
+              <p class="elements__counter">0</p>
+            </button>
           </figcaption>
         </figure>
       </template>
