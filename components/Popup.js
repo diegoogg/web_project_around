@@ -18,6 +18,7 @@ export default class Popup {
       this.close();
     }
   };
+
   setEventListeners() {
     const popupOpen = document.querySelector(this._popup);
 

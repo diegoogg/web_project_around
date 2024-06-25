@@ -14,7 +14,7 @@ export const placeInput = document.querySelector(".popup__input_place");
 export const placeSrc = document.querySelector(".popup__input_src");
 
 export const nameInput = document.querySelector(".popup__input_name");
-export const jobInput = document.querySelector(".popup__input_job");
+export const jobInput = document.querySelector(".popup__input_about");
 
 export const profileName = document.querySelector(".profile__name");
 export const profileJob = document.querySelector(".profile__description");
@@ -28,7 +28,7 @@ export const imagePopup = document.querySelector("#image-popup");
 
 export const elementsArea = document.querySelector(".elements");
 
-export const deleteCard = document.querySelector(".elements__image-delete-btn");
+//export const deleteCard = document.querySelector(".elements__image-delete-btn");
 
 export const ediAvatar = document.querySelector(".profile__edit-avatar");
 export const popupConfirmation = new PopupWithConfirmation(

@@ -73,8 +73,8 @@ const popupEditAvatar = new PopupWithForm(".popup_avatar", ({ avatar }) => {
 
 const popupImage = new PopupWithImage(".popup_card");
 
-let currentUser = null;
-let section = null;
+let currentUser;
+let section;
 
 api.getUserInfo().then((user) => {
   currentUser = user;
